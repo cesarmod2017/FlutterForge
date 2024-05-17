@@ -74,6 +74,48 @@ class HomeProjectConfigurationComponent extends StatelessWidget {
                     )
                   ],
                 ),
+                25.toHeightSpace(),
+                Row(
+                  children: [
+                    Flexible(
+                      child: PrimaryButtonWidget(
+                        onTap: () async {
+                          await _.startAndroidScript();
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const FaIcon(
+                              FontAwesomeIcons.googlePlay,
+                              size: 16,
+                            ),
+                            10.toWidthSpace(),
+                            LabelWidget(title: "execute_script_android".tr),
+                          ],
+                        ),
+                      ),
+                    ),
+                    25.toWidthSpace(),
+                    Flexible(
+                      child: PrimaryButtonWidget(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const FaIcon(
+                              FontAwesomeIcons.apple,
+                              size: 16,
+                            ),
+                            10.toWidthSpace(),
+                            LabelWidget(title: "execute_script_ios".tr),
+                          ],
+                        ),
+                        onTap: () async {
+                          await _.startIosScript();
+                        },
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
@@ -119,16 +161,6 @@ class HomeProjectConfigurationComponent extends StatelessWidget {
                             ),
                           ),
                         ),
-                        25.toHeightSpace(),
-                        SizedBox(
-                          width: 200,
-                          child: PrimaryButtonWidget(
-                            titleButtom: "execute_script".tr,
-                            onTap: () async {
-                              await _.startAndroidScript();
-                            },
-                          ),
-                        )
                       ],
                     ),
                   ),

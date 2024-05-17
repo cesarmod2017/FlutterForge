@@ -126,13 +126,32 @@ class HomeController extends GetxController {
     messages = [];
     update();
     if (selectedProject != null) {
+      final filePath =
+          selectedProject!.pathProject! + selectedProject!.androidFile!;
+      await createFileAndFolder(filePath, selectedProject!.androidConfig ?? "");
+      await startScript(filePath);
+    }
+  }
+
+  Future<void> startIosScript() async {
+    messages = [];
+    update();
+    if (selectedProject != null) {
+      final filePath =
+          selectedProject!.pathProject! + selectedProject!.iosFile!;
+      await createFileAndFolder(filePath, selectedProject!.iosConfig ?? "");
+
+      await startScript(filePath);
+    }
+  }
+
+  Future<void> startScript(String filePath) async {
+    messages = [];
+    update();
+
+    if (selectedProject != null) {
       try {
         final stopwatch = Stopwatch()..start();
-
-        final filePath =
-            selectedProject!.pathProject! + selectedProject!.androidFile!;
-        await createFileAndFolder(
-            filePath, selectedProject!.androidConfig ?? "");
 
         Process process;
         if (Platform.isWindows) {
