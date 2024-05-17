@@ -1,0 +1,40 @@
+library flutter_forge;
+
+export 'package:highlight/languages/cs.dart';
+export 'package:highlight/languages/dart.dart';
+export 'package:highlight/languages/htmlbars.dart';
+export 'package:highlight/languages/java.dart';
+export 'package:highlight/languages/javascript.dart';
+export 'package:highlight/languages/vue.dart';
+
+export 'nexa_code/analyzer/abstract.dart';
+export 'nexa_code/analyzer/dartpad_analyzer.dart';
+export 'nexa_code/analyzer/default_analyzer.dart';
+export 'nexa_code/analyzer/models/analysis_result.dart';
+export 'nexa_code/analyzer/models/issue.dart';
+export 'nexa_code/analyzer/models/issue_type.dart';
+export 'nexa_code/code/code.dart';
+export 'nexa_code/code/code_line.dart';
+export 'nexa_code/code/string.dart';
+export 'nexa_code/code/text_range.dart';
+export 'nexa_code/code/tokens.dart';
+export 'nexa_code/code_field/code_controller.dart';
+export 'nexa_code/code_field/code_field.dart';
+export 'nexa_code/code_field/editor_params.dart';
+export 'nexa_code/code_field/js_workarounds/js_workarounds.dart'
+    show disableBuiltInSearchIfWeb;
+export 'nexa_code/code_field/text_editing_value.dart';
+export 'nexa_code/code_modifiers/close_block_code_modifier.dart';
+export 'nexa_code/code_modifiers/code_modifier.dart';
+export 'nexa_code/code_modifiers/indent_code_modifier.dart';
+export 'nexa_code/code_modifiers/tab_code_modifier.dart';
+export 'nexa_code/code_theme/code_theme.dart';
+export 'nexa_code/code_theme/code_theme_data.dart';
+export 'nexa_code/folding/foldable_block.dart';
+export 'nexa_code/folding/foldable_block_type.dart';
+export 'nexa_code/folding/invalid_foldable_block.dart';
+export 'nexa_code/folding/parsers/highlight.dart';
+export 'nexa_code/line_numbers/gutter_style.dart';
+export 'nexa_code/named_sections/named_section.dart';
+export 'nexa_code/named_sections/parsers/abstract.dart';
+export 'nexa_code/named_sections/parsers/brackets_start_end.dart';
