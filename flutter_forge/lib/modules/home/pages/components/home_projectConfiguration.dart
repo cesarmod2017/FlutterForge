@@ -14,114 +14,116 @@ class HomeProjectConfigurationComponent extends StatelessWidget {
         children: [
           Flexible(
             flex: 1,
-            child: Column(
-              children: [
-                CustomTextField(
-                  controller: _.selectedProject!.projectNameController!,
-                  hint: "project_name_placeholder".tr,
-                  label: "project_name".tr,
-                  keyboardType: TextInputType.text,
-                  onChanged: (value) async {
-                    await _.changeProjectName(value);
-                  },
-                ),
-                CustomTextField(
-                  controller: _.selectedProject!.projectPathController!,
-                  hint: "project_path_placeholder".tr,
-                  label: "project_path".tr,
-                  keyboardType: TextInputType.text,
-                  onChanged: (value) async {
-                    await _.changeProjectPath(value);
-                  },
-                ),
-                CustomTextField(
-                  controller: _.selectedProject!.androidFileController!,
-                  hint: "project_android_file_placeholder".tr,
-                  label: "project_android_file".tr,
-                  keyboardType: TextInputType.text,
-                  onChanged: (value) async {
-                    await _.changeAndroidFile(value);
-                  },
-                ),
-                CustomTextField(
-                  controller: _.selectedProject!.iosFileController!,
-                  hint: "project_ios_file_placeholder".tr,
-                  label: "project_ios_file".tr,
-                  keyboardType: TextInputType.text,
-                  onChanged: (value) async {
-                    await _.changeIosFile(value);
-                  },
-                ),
-                25.toHeightSpace(),
-                Row(
-                  children: [
-                    Flexible(
-                      child: PrimaryButtonWidget(
-                        titleButtom: "project_android_config".tr,
-                        onTap: () {
-                          _.setConfigType(true);
-                        },
-                      ),
-                    ),
-                    25.toWidthSpace(),
-                    Flexible(
-                      child: PrimaryButtonWidget(
-                        titleButtom: "project_ios_config".tr,
-                        onTap: () {
-                          _.setConfigType(false);
-                        },
-                      ),
-                    )
-                  ],
-                ),
-                25.toHeightSpace(),
-                Row(
-                  children: [
-                    Flexible(
-                      child: PrimaryButtonWidget(
-                        onTap: () async {
-                          await _.startAndroidScript();
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const FaIcon(
-                              FontAwesomeIcons.googlePlay,
-                              size: 16,
-                            ),
-                            10.toWidthSpace(),
-                            LabelWidget(title: "execute_script_android".tr),
-                          ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CustomTextField(
+                    controller: _.selectedProject!.projectNameController!,
+                    hint: "project_name_placeholder".tr,
+                    label: "project_name".tr,
+                    keyboardType: TextInputType.text,
+                    onChanged: (value) async {
+                      await _.changeProjectName(value);
+                    },
+                  ),
+                  CustomTextField(
+                    controller: _.selectedProject!.projectPathController!,
+                    hint: "project_path_placeholder".tr,
+                    label: "project_path".tr,
+                    keyboardType: TextInputType.text,
+                    onChanged: (value) async {
+                      await _.changeProjectPath(value);
+                    },
+                  ),
+                  CustomTextField(
+                    controller: _.selectedProject!.androidFileController!,
+                    hint: "project_android_file_placeholder".tr,
+                    label: "project_android_file".tr,
+                    keyboardType: TextInputType.text,
+                    onChanged: (value) async {
+                      await _.changeAndroidFile(value);
+                    },
+                  ),
+                  CustomTextField(
+                    controller: _.selectedProject!.iosFileController!,
+                    hint: "project_ios_file_placeholder".tr,
+                    label: "project_ios_file".tr,
+                    keyboardType: TextInputType.text,
+                    onChanged: (value) async {
+                      await _.changeIosFile(value);
+                    },
+                  ),
+                  25.toHeightSpace(),
+                  Row(
+                    children: [
+                      Flexible(
+                        child: PrimaryButtonWidget(
+                          titleButtom: "project_android_config".tr,
+                          onTap: () {
+                            _.setConfigType(true);
+                          },
                         ),
                       ),
-                    ),
-                    25.toWidthSpace(),
-                    Flexible(
-                      child: PrimaryButtonWidget(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const FaIcon(
-                              FontAwesomeIcons.apple,
-                              size: 16,
-                            ),
-                            10.toWidthSpace(),
-                            LabelWidget(title: "execute_script_ios".tr),
-                          ],
+                      25.toWidthSpace(),
+                      Flexible(
+                        child: PrimaryButtonWidget(
+                          titleButtom: "project_ios_config".tr,
+                          onTap: () {
+                            _.setConfigType(false);
+                          },
                         ),
-                        onTap: () async {
-                          await _.startIosScript();
-                        },
+                      )
+                    ],
+                  ),
+                  25.toHeightSpace(),
+                  Row(
+                    children: [
+                      Flexible(
+                        child: PrimaryButtonWidget(
+                          onTap: () async {
+                            await _.startAndroidScript();
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const FaIcon(
+                                FontAwesomeIcons.googlePlay,
+                                size: 16,
+                              ),
+                              10.toWidthSpace(),
+                              LabelWidget(title: "execute_script_android".tr),
+                            ],
+                          ),
+                        ),
                       ),
-                    )
-                  ],
-                ),
-              ],
+                      25.toWidthSpace(),
+                      Flexible(
+                        child: PrimaryButtonWidget(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const FaIcon(
+                                FontAwesomeIcons.apple,
+                                size: 16,
+                              ),
+                              10.toWidthSpace(),
+                              LabelWidget(title: "execute_script_ios".tr),
+                            ],
+                          ),
+                          onTap: () async {
+                            await _.startIosScript();
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           25.toWidthSpace(),
           Flexible(
-            flex: 3,
+            flex: 2,
             child: _.configType == null
                 ? Container()
                 : Align(
